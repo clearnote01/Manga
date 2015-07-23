@@ -15,16 +15,14 @@
 
 ## Imports
 
-from sys import argv
 import requests 
 from bs4 import BeautifulSoup
 import re
-
+import sys
 
 # Give url of image and image name
 def saveimg(url, name):
     req = requests.get(url)#, stream=True)
-    print 'Saving:{}', name
     with open(name, 'wb') as f:
         for chunk in req.iter_content(128):
             f.write(chunk)
@@ -35,15 +33,26 @@ def makeName(manga, ch, page):
         page = 1
     return '{}-{}-{}'.format(manga, ch, page)
 
+# Give current status of download
+def statusDownload(i, pages, name):
+    if i == 0:
+        print '\nStarting download from: {}'.format(name)
+        sys.stdout.write('['+' '*100+']\n[')
+    frac = 100/pages
+    frac = int(round(frac))
+    opline  = '='*frac
+    sys.stdout.write(opline)
+    sys.stdout.flush() 
+
 # Main loop
 def mainfunc():
     try:
-        url = argv[1]
+        url = sys.argv[1]
     except:
         print 'ERROR: URL not given'
         raise EnvironmentError
     try:
-        pages = int(argv[2])
+        pages = int(sys.argv[2])
     except:
         pages = 20
     pattern = re.compile(r'^(\w+://\w+.\w+.\w+/)(.*?)/(.*?)(/(.*?))?$')  
@@ -59,7 +68,8 @@ def mainfunc():
         print 'ERROR: Regex of URL not matched'
         raise EnvironmentError
     
-    for i in range(pages): 
+    i = 0
+    while True:
         url = '{}{}/{}/{}'.format(webp, manga, chapter, page) 
         r = requests.get(url)
         soup = BeautifulSoup(r.content, "lxml")
@@ -71,12 +81,15 @@ def mainfunc():
             # Since my url has only one img tag, that's that
             imgsrc = imgtags[0].get("src")
             # requests object of the imgsrc url
-            print 'NAME:'
             name = makeName(manga, chapter, page)
-            print name
             saveimg(imgsrc, name)
+            statusDownload(i, pages, name)
             if page == '':
                 page = 2
             else: page += 1
-        print 'Current Status;{}/{}'.format(i+1, pages)
+            i += 1
+            if i == pages:
+                sys.stdout.write(']\nDownload finished at:{}\n\n'.format(name))
+                break
+
 mainfunc()
