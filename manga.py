@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 import re
 
 
-# Give requests object of image and image name
+# Give url of image and image name
 def saveimg(url, name):
     req = requests.get(url)#, stream=True)
     print 'Saving:{}', name
@@ -30,7 +30,7 @@ def saveimg(url, name):
             f.write(chunk)
 
 # Creates a name based on manga name, ch and page
-def funky(manga, ch, page):
+def makeName(manga, ch, page):
     if page =='':
         page = 1
     return '{}-{}-{}'.format(manga, ch, page)
@@ -72,14 +72,11 @@ def mainfunc():
             imgsrc = imgtags[0].get("src")
             # requests object of the imgsrc url
             print 'NAME:'
-            name = funky(manga, chapter, page)
+            name = makeName(manga, chapter, page)
             print name
             saveimg(imgsrc, name)
             if page == '':
                 page = 2
             else: page += 1
         print 'Current Status;{}/{}'.format(i+1, pages)
-        # new url
-        print 'URl:', url
-# print funky('OP',500,'')
 mainfunc()
