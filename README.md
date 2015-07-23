@@ -1,7 +1,3 @@
-Manga
-
-
-
 Download mangas from sites like mangareader.net etc.
 
 Cool program to download images from sites very easily, usually mangas
