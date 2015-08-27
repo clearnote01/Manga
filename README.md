@@ -2,22 +2,34 @@ Download mangas from sites like mangareader.net etc.
 
 Cool program to download images from sites very easily, usually mangas
 sites like mangareader have a specific url structure which this program
-mimics to get 'pages' from the given url. 
+mimics to get 'pages' from the given url. It stores the downloaded pages
+in a directory with the same name as the manga.
+
+
+--> How to use?
 
 First argument 'URL'
-
 Second argument 'number of pages you want to download from that point'
 
-For example running this script in terminal as:-
 
-python manga.py http://mangareader/one-piece/400/2 10
+Example:-
+>   python manga.py http://mangareader/one-piece/400/2 10
+This will create a directory name 'one-piece' in the current directory
+and save the pages [2 to 11] of [400]th chapter of [one-piece] manga
 
-This will download page 2 to 11 of 400th chapter of one-piece manga
 
 Requirements:-
-  python requests module
-  python BeautifulSoup module
+  1) python 2.6 or higher
+     Install by :-
+        >   sudo apt-get install python
+  2) python requests module
+        a) Using pip
+        >   sudo apt-get install python-pip
+        >   pip install requests
+  3) python BeautifulSoup module
+    
+        
 
 Sites currently supported:-
   mangareader.com
-  OTHER may also WORK but not tested yet
+  OTHER sites may also WORK but not tested yet
