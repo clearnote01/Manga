@@ -1,6 +1,6 @@
 # Cool program to download images from sites very easily, usually mangas
 # sites like mangareader have a specific url structure which this program
-# mimics to get 'pages' from the given url. 
+# mimics to get 'pages' from the given url.
 # First argument 'URL'
 # Second argument 'number of pages you want to download from that point'
 # For example running this script in terminal as:-
@@ -15,7 +15,7 @@
 
 ## Imports
 
-import requests 
+import requests
 from bs4 import BeautifulSoup
 import re
 import sys
@@ -43,7 +43,7 @@ def statusDownload(i, pages, name):
     frac = int(round(frac))
     opline  = '='*frac
     sys.stdout.write(opline)
-    sys.stdout.flush() 
+    sys.stdout.flush()
 
 # Main loop
 def mainfunc():
@@ -56,7 +56,7 @@ def mainfunc():
         pages = int(sys.argv[2])
     except:
         pages = 20
-    pattern = re.compile(r'^(\w+://\w+.\w+.\w+/)(.*?)/(.*?)(/(.*?))?$')  
+    pattern = re.compile(r'^(\w+://\w+.\w+.\w+/)(.*?)/(.*?)(/(.*?))?$')
     mo = pattern.search(url)
     try:
         webp = mo.group(1)
@@ -68,10 +68,10 @@ def mainfunc():
     except:
         print 'ERROR: Regex of URL not matched'
         raise EnvironmentError
-    
+
     i = 0
     try:
-        if (os.path.exists(manga):
+        if (os.path.exists(manga)):
             os.chdir(manga)
         else:
             os.makedirs(manga)
@@ -83,9 +83,9 @@ def mainfunc():
             pass
         else:
             sys.exit("Download cancelled")
-        
+
     while True:
-        url = '{}{}/{}/{}'.format(webp, manga, chapter, page) 
+        url = '{}{}/{}/{}'.format(webp, manga, chapter, page)
         r = requests.get(url)
         soup = BeautifulSoup(r.content, "lxml")
         if soup.text == '404 Not Found':
