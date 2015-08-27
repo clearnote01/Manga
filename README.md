@@ -14,6 +14,7 @@ Second argument 'number of pages you want to download from that point'
 
 Example:-
 >   python manga.py http://mangareader/one-piece/400/2 10
+
 This will create a directory name 'one-piece' in the current directory
 and save the pages [2 to 11] of [400]th chapter of [one-piece] manga
 
