@@ -19,6 +19,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import sys
+import os
 
 # Give url of image and image name
 def saveimg(url, name):
@@ -69,6 +70,20 @@ def mainfunc():
         raise EnvironmentError
     
     i = 0
+    try:
+        if (os.path.exists(manga):
+            os.chdir(manga)
+        else:
+            os.makedirs(manga)
+            os.chdir(manga)
+    except:
+        print("Seperate directory for the manga can't be created.\nDo you want to download in the current directory(y/n)")
+        ans=raw_input()
+        if (ans=='y'):
+            pass
+        else:
+            sys.exit("Download cancelled")
+        
     while True:
         url = '{}{}/{}/{}'.format(webp, manga, chapter, page) 
         r = requests.get(url)
