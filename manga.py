@@ -55,7 +55,7 @@ def mainfunc():
     try:
         pages = int(sys.argv[2])
     except:
-        pages = 20
+        pages = -1 #if number of pages is not given download all remaining pages instead of fixing it to 20
     pattern = re.compile(r'^(\w+://\w+.\w+.\w+/)(.*?)/(.*?)(/(.*?))?$')
     mo = pattern.search(url)
     try:
@@ -92,6 +92,13 @@ def mainfunc():
             chapter += 1
             page = ''
         else:
+            if(pages==-1):
+                #initialise number of pages if not given
+                opt=soup.find_all("option")
+                for x in range(0,len(opt)):
+                    if(opt[x].get("selected")=="selected"):
+                        pages=len(opt)-x
+                        break
             imgtags = soup.find_all("img")
             # Since my url has only one img tag, that's that
             imgsrc = imgtags[0].get("src")
