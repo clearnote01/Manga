@@ -104,7 +104,8 @@ def mainfunc():
             imgsrc = imgtags[0].get("src")
             # requests object of the imgsrc url
             name = makeName(manga, chapter, page)
-            saveimg(imgsrc, name)
+            if os.path.exists(name) is False:
+                saveimg(imgsrc, name)
             statusDownload(i, pages, name)
             if page == '':
                 page = 2
