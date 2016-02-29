@@ -28,9 +28,9 @@ Requirements:-
         >   sudo apt-get install python-pip
         >   pip install requests
   3) python BeautifulSoup module
-    
+
         
 
 Sites currently supported:-
-  mangareader.com
+  www.mangareader.com
   OTHER sites may also WORK but not tested yet
