@@ -26,8 +26,9 @@ Requirements:-
   2) python requests module
         a) Using pip
         >   sudo apt-get install python-pip
-        >   pip install requests
+        >   sudo pip install requests
   3) python BeautifulSoup module
+	>   sudo pip install bs4
 
         
 
