@@ -39,5 +39,5 @@ and save the pages [2 to 11] of [400]th chapter of [one-piece] manga
 
 ### Sites currently supported:
 
-- www.mangareader.com
+- www.mangareader.net
 - OTHER sites may also WORK but not tested yet
