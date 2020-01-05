@@ -29,15 +29,9 @@ and save the pages [2 to 11] of [400]th chapter of [one-piece] manga
 
 ### Requirements:
 
-1) Python 2.x
-
-2) Python requests module (install using ```sudo pip install requests```)
-
-3) Python BeautifulSoup module (install using ```sudo pip install bs4```)
-
+1) Python requests and bs4/lxml module (install using ```pip install lxml requests bs4```)
         
 
 ### Sites currently supported:
 
 - www.mangareader.net
-- OTHER sites may also WORK but not tested yet

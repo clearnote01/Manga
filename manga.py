@@ -32,12 +32,12 @@ def saveimg(url, name):
 def makeName(manga, ch, page):
     if page =='':
         page = 1
-    return '{}-{}-{}'.format(manga, ch, page)
+    return '{}-{}-{}.jpg'.format(manga, ch, page)
 
 # Give current status of download
 def statusDownload(i, pages, name):
     if i == 0:
-        print '\nStarting download from: {}'.format(name)
+        print('\nStarting download from: {}'.format(name))
         sys.stdout.write('['+' '*100+']\n[')
     frac = 100/pages
     frac = int(round(frac))
@@ -50,8 +50,7 @@ def mainfunc():
     try:
         url = sys.argv[1]
     except:
-        print 'ERROR: URL not given'
-        raise EnvironmentError
+        raise ValueError("URL not given")
     try:
         pages = int(sys.argv[2])
     except:
@@ -66,8 +65,7 @@ def mainfunc():
             page = ''
         else: page = int(mo.group(5))
     except:
-        print 'ERROR: Regex of URL not matched'
-        raise EnvironmentError
+        raise ValueError('Regex of URL doesn\'t match')
 
     i = 0
     try:
@@ -78,7 +76,7 @@ def mainfunc():
             os.chdir(manga)
     except:
         print("Seperate directory for the manga can't be created.\nDo you want to download in the current directory(y/n)")
-        ans=raw_input()
+        ans= input()
         if (ans=='y'):
             pass
         else:
