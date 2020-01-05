@@ -53,13 +53,12 @@ optional arguments:
   --list                list some sample manga names
   ```
 
-## What name to give for manga?
+### What name to give for manga?
 
->Give the manga name, from manganet [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
->Just go to manga net, find your manga, in the URL whichever name is present, use that name here]
+Give the manga name, from manganet [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
+Just go to https://www.mangareader.net, find your manga, in the URL whichever name is present, use that name here.
 
 See a list of sample manga names
-  
    
 ```
 python manga.py --list list
