@@ -29,8 +29,34 @@ See all the options with :
 python manga.py --help
 ```
 
-name                  give the manga name, from manganet [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
-                    [just go to manga net, find your manga, in the URL whichever name is present, use that name here]
+```
+usage: manga.py [-h] [--ch CH] [--page PAGE] [--max-pages MAX_PAGES]
+                [--resume RESUME] [--list]
+                name
+
+Cool manga downloader
+
+positional arguments:
+  name                  give the manga name, taken from manganet URL name for
+                        the manga , eg: one-piece, naruto, shingeki-no-kyojin
+                        browse http://mangareader.net/ to find the names
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --ch CH               give the chapter number (default: 1)
+  --page PAGE           give the page number in that chapter for offset
+                        (default: 1)
+  --max-pages MAX_PAGES
+                        give the pages count, (default: -1) disabled
+  --resume RESUME       resume from last downloaded chapter and page (default:
+                        True)
+  --list                list some sample manga names
+  ```
+
+## What name to give for manga?
+
+>Give the manga name, from manganet [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
+>Just go to manga net, find your manga, in the URL whichever name is present, use that name here]
 
 See a list of sample manga names
   
