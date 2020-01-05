@@ -55,8 +55,8 @@ optional arguments:
 
 ### What name to give for manga?
 
-Give the manga name, from manganet [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
-Just go to https://www.mangareader.net, find your manga, in the URL whichever name is present, use that name here.
+Names should be like following - [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
+In doubt go to https://www.mangareader.net, find your manga, in the URL whichever name is present, use that name here.
 
 See a list of sample manga names
    
@@ -66,7 +66,7 @@ python manga.py --list list
 
 ### Requirements:
 
-1) Python requests and bs4/lxml module (install using ```pip install lxml requests bs4```)
+1) Python requests and bs4/lxml module (install using pip with ```pip install lxml requests bs4```)
         
 
 ### Sites used internally:
