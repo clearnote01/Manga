@@ -10,28 +10,40 @@ in a directory with the same name as the manga.
 
 **Usage**:
 ```
-python manga.py <URL> <No of Pages>
+python manga.py <MANGA-NAME>
 ```
-
-`<URL>` specifies the url of the page to download from
-
-`<No of Pages>` specifies the number of pages to download
 
 **Example**:
 
 ```
-python manga.py http://mangareader.net/one-piece/400/2 10
+python manga.py one-piece
 ```
 
 This will create a directory name 'one-piece' in the current directory
-and save the pages [2 to 11] of [400]th chapter of [one-piece] manga
+and start the download.
+  
 
+See all the options with : 
+
+```
+python manga.py --help
+```
+
+name                  give the manga name, from manganet [one-piece, shingeki-no-kyojin, boruto, naruto, etc]
+                    [just go to manga net, find your manga, in the URL whichever name is present, use that name here]
+
+See a list of sample manga names
+  
+   
+```
+python manga.py --list list
+```
 
 ### Requirements:
 
 1) Python requests and bs4/lxml module (install using ```pip install lxml requests bs4```)
         
 
-### Sites currently supported:
+### Sites used internally:
 
 - www.mangareader.net
